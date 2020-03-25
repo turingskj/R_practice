@@ -13,6 +13,11 @@ z <-c(1:4, "text", 4.2)
 y <- seq(1, 30, by=2)
 y <- seq(from=2, by=2, length=3)
 
+# using vector()
+x <- vector(mode="double", length=10L)
+y <- vector(mode = "integer", length = 3L)
+z <- vector(mode="logical", length=3L)
+
 # creating a sequence of variable names using rep() and seq()
 s <- rep(c(2, 3, 4), times=4)
 s <-rep(x, each=3)
