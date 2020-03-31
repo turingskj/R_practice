@@ -3,11 +3,6 @@
 getwd()  # get the current working directory
 setwd()  # set the new working directory
 
-# runing external r script 
-source("rcode.r")
-# redirecting output to a file
-sink("test.out")
-# sink() will redirect to console output
 
 # c() function creates a list of vector with character string
 x <- c(1, 2.3, 2, 5, 2.2, 4)
