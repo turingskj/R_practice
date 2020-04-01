@@ -110,8 +110,9 @@ e[3]<-4
 
 # chaning the length of a variable
 alpha <-c(1:10)
-alpha <-alpha[2*(1:5)]
-length(alpha)<-3
+beta <-alpha[2*(1:5)]
+beta <-alpha[c(1:3, 7:9)]
+length(beta)<-3
 
 
 z<-c(0:9)
