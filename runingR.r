@@ -145,8 +145,12 @@ print(c)
 rownames(c)[3] <-"c"
 print(c)
 
+# take a part of the matrix and make a new matrix with different dimension
 
-
+k <- c[c("a"), ]
+length(k) <- 12
+dim(k) <- c(4, 3)
+print(k)
 
 # using seq() and rep() for generating sequence
 
