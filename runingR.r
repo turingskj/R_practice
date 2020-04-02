@@ -120,10 +120,11 @@ a[1, , drop=FALSE] # this will give you a matrix of 1 by 5
 # naming matrix dimensions. the name must be a list
 mynames <- list(c("row1", "row2"), paste0("col", rep(c(1:5))))
 dimnames(a) <- mynames
-
+print(a)
 # access matrix by names
 a["row1", ] # first row of a
 a[, c("col1", "col3")]
+
 
 
 # another way to create a matrix
@@ -151,6 +152,42 @@ k <- c[c("a"), ]
 length(k) <- 12
 dim(k) <- c(4, 3)
 print(k)
+
+
+# factors
+# sample a data vector of 20 numbers between 1 and 6, and replace the values with 
+# the labels using factor(). the order of the level is determined by "levels"
+# Without explictly specifying, levels are sorted by alphabetically if characters.
+
+x <- factor(sample(2:6, 20, replace=TRUE), levels = c(1:6), labels =
+              c("one", "two", "three", "four", "five", "six"))
+print(x)
+table(x) # gives a frequency table based on the factor levels
+unclass(x) # will give you original data (1, 2, 3, 4, 2, etc.)
+
+x <- factor(c("one", "two", "three", "four", "five", "six"))
+print(x) # note that factor levels are alphabetially sorted
+
+x <- factor(c("two", "two", "three", "four", "five", "six"), levels =
+              c("one", "two", "three", "four", "five", "six"))
+print(x) # note that factor levels are in order of "levels"
+
+
+x <- factor(sample(2:6, 20, replace=TRUE), levels = c(6:1), labels =
+              c("one", "two", "three", "four", "five", "six"))
+  # factor() correctly match the levels and labels. But this may not be true
+  # for characters
+
+
+# in the following example, the level "one" is labeled as "six"...
+x <- factor(c("one", "one", "two", "four"), levels = 
+              c("one", "two", "three", "four", "five", "six"), 
+            labels =c("six", "two", "three", "four", "five", "one"))
+
+
+
+
+
 
 # using seq() and rep() for generating sequence
 
@@ -181,12 +218,14 @@ a34 <- cbind(a, b)
 max(a)
 pmax(a, b)
 
+
 a2<- rep(a2, each = 1, times=2)
 
 is.na(c(1, 1, 2, NA))
 is.nan(c(1, 2, 2, NA, NaN))
 
 a<-paste(c("X", "Y"), 1:10, sep="")
+print(a)
 b<-paste("X", 1:20, sep="")
 a <- paste(c("x", "y"), rep(c(1, 2), each=2),sep="")
 a <- paste0(c("x", "y"), rep(c(1, 2), each=2))   # this and the above line is the same
@@ -194,6 +233,7 @@ a <- paste0(c("x", "y"), rep(c(1, 2), each=2))   # this and the above line is th
 
 x <-c(1, 2, 3, 4, 5, 3, NA)
 y <-x[!is.na(x)]
+print(y)
 
 x<-c(2,2,3,1,-2,NA)
 y <-(x+1)[!is.na(x) & x>0]
