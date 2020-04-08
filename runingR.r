@@ -185,8 +185,17 @@ x <- factor(c("one", "one", "two", "four"), levels =
             labels =c("six", "two", "three", "four", "five", "one"))
 
 
+# NA and NaN
+is.na(c(1, 1, 2, NA)) # returns logical (TRUE and FALSE) for the data if NA exists
+is.nan(c(1, 2, 2, NA, NaN))
+
+# is.na() can also set an element of the data to "NA"
+is.na(c) <-3:5 # set the 3rd to 5th element values to "NA"
+c[is.na(c)] <-10 # find the cells with "NA" and replace with 10
 
 
+
+### R dataframe
 
 
 # using seq() and rep() for generating sequence
@@ -221,8 +230,7 @@ pmax(a, b)
 
 a2<- rep(a2, each = 1, times=2)
 
-is.na(c(1, 1, 2, NA))
-is.nan(c(1, 2, 2, NA, NaN))
+
 
 a<-paste(c("X", "Y"), 1:10, sep="")
 print(a)
