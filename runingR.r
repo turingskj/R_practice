@@ -92,6 +92,7 @@ b
 # lsit() will create a list of objects with different class (integer, numeric, etc)
 # use double bracket [[]] to acess the content of the list element
 # single bracket will give you the object class, not the object itself
+# therefore, list object does not have dimension, which means that a list object cannot have dimension names
 
 a<-list("a", 23.2, 3L, "home", TRUE)
 a[2]*2
@@ -196,6 +197,11 @@ c[is.na(c)] <-10 # find the cells with "NA" and replace with 10
 
 
 ### R dataframe
+# Data frame is like a collection of list objects but with dimensional informaiton
+# therefore, elements of data frame can be mixed with different classes
+# Also, dimenions can be named and factors can be found for string elements 
+# Many functions, "read.csv(), read.table(), read.spss(), ..." read data as data frame
+# change go matrix from data frame: data.matrix
 
 
 # using seq() and rep() for generating sequence
