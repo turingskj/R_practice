@@ -103,7 +103,15 @@ a[[2]]*2
 
 print(a)
 
+# c() coercion
+# if c() includes text, vector, list, the list class is the final outcome
+x <- c(list("text", 3), 3, "6") # creates a list of four items
+y <- list("text", 3, 3, "6")  # also creates a list of four items
+z <- list(list("text", 3), 3, "6")  # creates a list of two items. the first
+                                  # item is a list of two items ("test", 3)
+                                  # z[[1]][[1]] will gives "text" as string
 
+str(x)  # check the structure of the variable
 
 # Matrix is the same as vector with different dimensions
 
@@ -204,11 +212,12 @@ c[is.na(c)] <-10 # find the cells with "NA" and replace with 10
 # change go matrix from data frame: data.matrix
 
 
+
+
 # using seq() and rep() for generating sequence
 
 y <- seq(1, 30, by=2)
 y <- seq(from=2, by=2, length=3)
-
 
 
 # creating a sequence of variable names using rep() and seq()
@@ -235,7 +244,6 @@ pmax(a, b)
 
 
 a2<- rep(a2, each = 1, times=2)
-
 
 
 a<-paste(c("X", "Y"), 1:10, sep="")
