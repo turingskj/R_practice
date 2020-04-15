@@ -202,7 +202,20 @@ is.nan(c(1, 2, 2, NA, NaN))
 is.na(c) <-3:5 # set the 3rd to 5th element values to "NA"
 c[is.na(c)] <-10 # find the cells with "NA" and replace with 10
 
+## Table
+# table() creates frequency table from the two or more variables.
+# as.table() converts matrix or vector data as frequency table. the cross tabulation
 
+sexbysmoke<-matrix(c(70,120,65,140),ncol=2,byrow=TRUE)
+rownames(sexbysmoke)<-c("male","female")
+colnames(sexbysmoke)<-c("smoke","nosmoke")
+sexbysmoke <-as.table(sexbysmoke)
+names(attributes(sexbysmoke)$dimnames) <- c("Sex", "Smoking") # adding dimension names
+
+# or create table from the data and add dimension names
+a <- c("Mon", "Tue","Wed", "Thur", "Wed", "Mon", "Sat")
+b <- c(1, 2, 1, 3, 4, 2, 1)
+table(a, b, dnn=list("Days", "Numbers"))
 
 ### R dataframe
 # Data frame is like a collection of list objects but with dimensional informaiton
@@ -280,7 +293,7 @@ b<-a[rep(c(1,2,2,1), times=1)]
 a<-c(1, 2, 3)  # c function simply combines the arguments as an output (assinged to a variable)
 cat("1, 2, 3\n") # cat only prints or save to file. does not return as a variable. 
                # therefore, you cannot assign a variable to the output of cat
-b<-paste("simple", 2, "r", 323) # paste combines all arguments as string. 
+b<-paste("simple", 2, "r", 323, sep="_") # paste combines all arguments as string. 
                              # its output can be assinged to a string variable. 
 
 
