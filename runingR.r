@@ -227,6 +227,8 @@ table(a, b, dnn=list("Days", "Numbers"))
 
 
 
+
+
 # using seq() and rep() for generating sequence
 
 y <- seq(1, 30, by=2)
