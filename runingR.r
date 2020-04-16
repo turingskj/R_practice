@@ -422,5 +422,6 @@ print(result)
 myfunctionX <- function(x, smean, mysd) {
   a <-pnorm(1.96, mean=smean, sd = mysd)
   print(a)
+  
 }
   
