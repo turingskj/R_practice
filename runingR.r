@@ -111,7 +111,19 @@ z <- list(list("text", 3), 3, "6")  # creates a list of two items. the first
                                   # item is a list of two items ("test", 3)
                                   # z[[1]][[1]] will gives "text" as string
 
+
 str(x)  # check the structure of the variable
+
+# use of double brackets for the list object
+# as in Matlab cell object, list object in R can have another object
+# within it. That is a list object can have a vector and string in it. 
+# using a single bracket [] returns an object, not the values of the object
+# this is similar to cell object in Matlab. In matlab, cell() returns 
+# an object within a cell, while cell{} returns values of the objects in the cell
+
+foo <- list( str='R', vec=c(1,2,3), bool=TRUE )
+class(foo[1])
+class(foo[[1]])
 
 # Matrix is the same as vector with different dimensions
 
@@ -134,6 +146,11 @@ print(a)
 a["row1", ] # first row of a
 a[, c("col1", "col3")]
 
+# another example
+a<- matrix(1:10, nrow=2, byrow=TRUE)
+b<-c(1:22)
+c<-matrix(b, nrow=2)
+View(c)
 
 
 # another way to create a matrix
@@ -223,6 +240,12 @@ table(a, b, dnn=list("Days", "Numbers"))
 # Also, dimenions can be named and factors can be found for string elements 
 # Many functions, "read.csv(), read.table(), read.spss(), ..." read data as data frame
 # change go matrix from data frame: data.matrix
+
+# dataframe automaticallyl includes row and column names
+
+# changing matrix to dataframe: as.data.frame()
+# dataframe to matrix: data.matrix()
+
 
 
 
@@ -388,23 +411,16 @@ result <- substring("Extract", 5, 7)
 print(result)
 
 
-# creating a matrix
-a<- matrix(1:10, nrow=2, byrow=TRUE)
-b<-c(1:22)
-c<-matrix(b, nrow=2)
-View(c)
 
 
-# use of double brackets for the list object
-# as in Matlab cell object, list object in R can have another object
-# within it. That is a list object can have a vector and string in it. 
-# using a single bracket [] returns an object, not the values of the object
-# this is similar to cell object in Matlab. In matlab, cell() returns 
-# an object within a cell, while cell{} returns values of the objects in the cell
 
-foo <- list( str='R', vec=c(1,2,3), bool=TRUE )
-class(foo[1])
-class(foo[[1]])
 
 ##### SPSS data processing related
 # reading spss data
+
+
+myfunctionX <- function(x, smean, mysd) {
+  a <-pnorm(1.96, mean=smean, sd = mysd)
+  print(a)
+}
+  
