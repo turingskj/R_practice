@@ -12,7 +12,7 @@
 # dataframe to matrix: data.matrix()
 
 mynum <-c(1, 2, 4, 1, 2, 34)
-sex <-c(rep(c("M", "F"), times=3))
+sex <-c(rep(c("M", "F"), times=length(mynum)/2))
 mydata <- data.frame(mynum, sex)
 print(mydata)
 
@@ -21,8 +21,8 @@ names(mydata)  # will gives you a vector of characters
 names(mydata)[1] <- "year" # changes the first variable "mynum" to "year"
 
 # or, to be safe, instead of the number, we can find the variable name and replace it
-names(mydata)[names(mydata)=="mynum"] <-- "year"
-
+names(mydata)[names(mydata)=="year"] <- "Year"
+names(mydata)[names(mydat)=="sex"] <- "Sex"
 # add a new variable
 mydata$country <- c(rep(c("US", "KR"), times=3))
 
