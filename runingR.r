@@ -63,6 +63,7 @@ z <- vector(mode="logical", length=3L)
 
 # naming a vector
 fruit <- c(1, 2, 3, 5, 6)
+
 colnames(fruit)<-c("one", "two", "three", "four", "five")
 # colnames will produce error since the fruit is a vector; it should be a matrix or dataframe
 
@@ -70,7 +71,6 @@ names(fruit)<-c("orange", "apple", "pear", "grape", "melon")
 fruit
 fruit["apple"]
 fruit[c("apple", "melon")]
-
 
 
 
@@ -94,7 +94,7 @@ b
 # single bracket will give you the object class, not the object itself
 # therefore, list object does not have dimension, which means that a list object cannot have dimension names
 
-a<-list("a", 23.2, 3L, "home", TRUE)
+a<-list(a = "a", b = 23.2, c=3L, d="home", e=TRUE) # a,b,c,d,e are names of elements
 a[2]*2
 # Error in a[2] * 2 : non-numeric argument to binary operator
 
@@ -107,10 +107,12 @@ print(a)
 # if c() includes text, vector, list, the list class is the final outcome
 x <- c(list("text", 3), 3, "6") # creates a list of four items
 y <- list("text", 3, 3, "6")  # also creates a list of four items
+names(y) <- c("string", "numberstring", "numberstring", "number")
+
 z <- list(list("text", 3), 3, "6")  # creates a list of two items. the first
                                   # item is a list of two items ("test", 3)
                                   # z[[1]][[1]] will gives "text" as string
-
+print(z)
 
 str(x)  # check the structure of the variable
 
@@ -122,6 +124,7 @@ str(x)  # check the structure of the variable
 # an object within a cell, while cell{} returns values of the objects in the cell
 
 foo <- list( str='R', vec=c(1,2,3), bool=TRUE )
+
 class(foo[1])
 class(foo[[1]])
 
@@ -140,7 +143,7 @@ a[1, , drop=FALSE] # this will give you a matrix of 1 by 5
 
 # naming matrix dimensions. the name must be a list
 mynames <- list(c("row1", "row2"), paste0("col", rep(c(1:5))))
-dimnames(a) <- mynames
+dimnames(a) <- mynames  # note that dimnames() only works with multidimensional matrix, array, or dataframe
 print(a)
 # access matrix by names
 a["row1", ] # first row of a
