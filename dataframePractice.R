@@ -30,3 +30,24 @@ mydata$country <- c(rep(c("US", "KR"), times=3))
 data2 <- data.frame(Group = paste0(rep(c("NC", "SZ", "BD"), each=10), sprintf("_%02d",seq(1:10))))
 data2
 
+
+
+# reading text data
+
+# read data into dataframe (tabular data like Excel)
+# read.table() <-> write.table()
+# read.csv()
+
+# readLines() # read lines of a text file  <-> writeLines()
+
+# source() # reading r script file  <-> inverse of dump()
+# dget() # write R object (functions, data, etc) into a file
+# dput() # read R object file
+
+# unserialize()  # reading single R ojbect in binary form, not text file <-> serial
+
+# load() # reading workspace data <-> save()
+
+
+
+
