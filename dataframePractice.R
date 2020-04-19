@@ -48,6 +48,16 @@ data2
 
 # load() # reading workspace data <-> save()
 
+tDCS1_df <- read.table("Data/tDCS_exp1.csv", header = TRUE, sep =",", fileEncoding="UTF-8-BOM")
+head(tDCS1_df)
 
+tDCS1_df <- read.csv("Data/tDCS_exp1new.csv", header = TRUE, fileEncoding ="UTF-8-BOM")
+head(tDCS1_df)
+# note that fileEncoding = "UTF-8" or "UTF-8-BOM" depending the unicode encoding method 
+# applied to the csv or text file. SPSS or Excel output usually add BOM to the CSV or
+# text file. R needs to know this for encoding. 
 
+# convert Target 
+tDCS1_df$Target <-factor(tDCS1_df$Target, levels = c(1, 2), labels = c("Abs", "Pre"))
 
+head(tDCS1_df)
