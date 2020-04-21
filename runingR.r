@@ -28,6 +28,8 @@ ls(name = "package:base", all.names = TRUE)
 # result is logical. If the members of c() are mixed (string, numbers, etc.), the result is the vector of
 # string.
 # If the members of c() is mixed, highest type is slected: character > numeric > integer > logical
+# 
+# "L" behind a number indicates that the number is integer
 
 x <- c(1, 2.3, 2, 5, 2.2, 4L) #if mixed with numeric and interger, output is numeric
 
