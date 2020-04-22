@@ -51,22 +51,26 @@ data2
 tDCS1_df <- read.table("Data/tDCS_exp1.csv", header = TRUE, sep =",", fileEncoding="UTF-8-BOM")
 head(tDCS1_df)
 
-
+# read.table or read.csv read data and any columns with character values would be
+# converted to "factor". 
+# you can spcify the class of variables with an option: colClasses = c("factor", "numeric")
 
 tDCS1_df <- read.csv("Data/tDCS_exp1new.csv", header = TRUE, fileEncoding ="UTF-8-BOM")
-head(tDCS1_df)
+                   
+head(tDCS1_df, n=70)
+str(tDCS1_df)
+
 # note that fileEncoding = "UTF-8" or "UTF-8-BOM" depending the unicode encoding method 
 # applied to the csv or text file. SPSS or Excel output usually add BOM to the CSV or
 # text file. R needs to know this for encoding. 
 
-# convert Target 
+# convert Variables to factors for analysis
+
 tDCS1_df$Target <-factor(tDCS1_df$Target, levels = c(1, 2), labels = c("Absent", "Present"))
 tDCS1_df$pre_post <-factor(tDCS1_df$pre_post, levels = c(1, 2), labels = c("PreTest", "PostTest"))
 tDCS1_df$Stimulation <-factor(tDCS1_df$Stimulation, levels = 1:3, labels = c("Sham", "Anode", "Cathode"))
 tDCS1_df$subject <-factor(tDCS1_df$subject, levels = 1:12)
 tDCS1_df$Difficulty <-factor(tDCS1_df$Difficulty, levels = 1:3, labels = c("Easy", "Moderate", "Difficult"))
-
-is.factor(tDCS1_df$subject)
 
 numberR <- nrow(tDCS1_df)
 head(tDCS1_df, n = 10L)
