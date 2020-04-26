@@ -72,8 +72,15 @@ tDCS1_df$Stimulation <-factor(tDCS1_df$Stimulation, levels = 1:3, labels = c("Sh
 tDCS1_df$subject <-factor(tDCS1_df$subject, levels = 1:12)
 tDCS1_df$Difficulty <-factor(tDCS1_df$Difficulty, levels = 1:3, labels = c("Easy", "Moderate", "Difficult"))
 
+# change OriginalID variable to factor
+temp1<-table(tDCS1_df$OriginalID) # tabulate OriginalID by the possible value
+temp1<-attributes(temp1)$dimnames[[1]] # get the list of table headings (levels)
+tDCS1_df$OriginalID <-factor(tDCS1_df$OriginalID, levels = temp1) # set the factor levels
+
 numberR <- nrow(tDCS1_df)
 head(tDCS1_df, n = 10L)
 tail(tDCS1_df, n = 10L)
+str(tDCS1_df)
+
 
 
