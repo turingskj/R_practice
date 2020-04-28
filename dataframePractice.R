@@ -63,7 +63,7 @@ head(tDCS1_df)
 
 tDCS1_df <- read.csv("Data/tDCS_exp1new.csv", header = TRUE, fileEncoding ="UTF-8-BOM")
                    
-head(tDCS1_df, n=70)
+head(tDCS1_df, n=20)
 str(tDCS1_df)
 
 # note that fileEncoding = "UTF-8" or "UTF-8-BOM" depending the unicode encoding method 
@@ -77,13 +77,14 @@ tDCS1_df$pre_post <-factor(tDCS1_df$pre_post, levels = c(1, 2), labels = c("PreT
 tDCS1_df$Stimulation <-factor(tDCS1_df$Stimulation, levels = 1:3, labels = c("Sham", "Anode", "Cathode"))
 tDCS1_df$subject <-factor(tDCS1_df$subject, levels = 1:12)
 tDCS1_df$Difficulty <-factor(tDCS1_df$Difficulty, levels = 1:3, labels = c("Easy", "Moderate", "Difficult"))
-
+str(tDCS1_df)
 
 # change OriginalID variable to factor
 
 
 temp1<-table(tDCS1_df$OriginalID) # tabulate by the value of OriginalID
-temp1<-attributes(temp1)$dimnames[[1]] # get the list of table headings (levels)
+#temp1<-attributes(temp1)$dimnames[[1]] # get the list of table headings (levels)
+temp1 <- names(temp1)
 tDCS1_df$OriginalID <-factor(tDCS1_df$OriginalID, levels = temp1)
 
 
@@ -96,10 +97,10 @@ str(tDCS1_df)
 # subsetting
 
 tDCS1_df2 <- tDCS1_df[-1] # remove the first variable
-head(tDCS_df2, n=15)
+head(tDCS1_df2, n=15)
 head(tDCS1_df2, n=-410)
 
-tDCS1_df2 <- tDCS1_df[c(-1, -3)] # remove the first variable
+tDCS1_df2 <- tDCS1_df[c(-1, -3)] # remove the first and third variable
 head(tDCS1_df2)
 
 myvar <- names(tDCS1_df)[c(2:5, 7)] # 
