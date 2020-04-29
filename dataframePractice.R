@@ -42,24 +42,34 @@ data2
 
 # read data into dataframe (tabular data like Excel)
 # read.table() <-> write.table()
-# read.csv()
+# read.csv() <-> write.csv()
 
 # readLines() # read lines of a text file  <-> writeLines()
+data1 <- readLines("Data/tDCS_exp1.csv", n=1, encoding = "UTF-8");
+
 
 # source() # reading r script file  <-> inverse of dump()
 # dget() # write R object (functions, data, etc) into a file
 # dput() # read R object file
 
+
 # unserialize()  # reading single R ojbect in binary form, not text file <-> serial
 
 # load() # reading workspace data <-> save()
 
-tDCS1_df <- read.table("Data/tDCS_exp1.csv", header = TRUE, sep =",", fileEncoding="UTF-8-BOM")
-head(tDCS1_df)
 
 # read.table or read.csv read data and any columns with character values would be
 # converted to "factor". 
 # you can spcify the class of variables with an option: colClasses = c("factor", "numeric")
+tDCS1_df <- read.table("Data/tDCS_exp1.csv", header = TRUE, sep =",", fileEncoding="UTF-8-BOM")
+head(tDCS1_df)
+
+# setting category of columns as factors or numeric
+tDCS1_df <- read.table("Data/tDCS_exp1.csv", header = TRUE, sep =",", fileEncoding="UTF-8-BOM", 
+                       colClasses =c("factor", "factor", "factor", "factor", "factor",
+                                     "factor", "numeric"))
+head(tDCS1_df)
+
 
 tDCS1_df <- read.csv("Data/tDCS_exp1new.csv", header = TRUE, fileEncoding ="UTF-8-BOM")
                    
@@ -70,7 +80,7 @@ str(tDCS1_df)
 # applied to the csv or text file. SPSS or Excel output usually add BOM to the CSV or
 # text file. R needs to know this for encoding. 
 
-# convert Variables to factors for analysis
+# convert Variables to factors with meaningful names for analysis
 
 tDCS1_df$Target <-factor(tDCS1_df$Target, levels = c(1, 2), labels = c("Absent", "Present"))
 tDCS1_df$pre_post <-factor(tDCS1_df$pre_post, levels = c(1, 2), labels = c("PreTest", "PostTest"))
