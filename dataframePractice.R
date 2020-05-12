@@ -16,7 +16,7 @@ sex <-c(rep(c("M", "F"), times=length(mynum)/2))
 mydata <- data.frame(mynum, sex)
 print(mydata)
 
-mydata2 <- mydata[c("sex")]  # select "sex" column
+mydata2 <- mydata["sex"]  # select "sex" column
 
 print(mydata2)
 
@@ -28,14 +28,18 @@ mydata
 
 # or, to be safe, instead of the number, we can find the variable name and replace it
 names(mydata)[names(mydata)=="year"] <- "Year"
-names(mydata)[names(mydat)=="sex"] <- "Sex"
+names(mydata)[names(mydata)=="sex"] <- "Sex"
 # add a new variable
 mydata$country <- c(rep(c("US", "KR"), times=3))
+head(mydata)
 
 # creating variable names and assign to the dataframe
 data2 <- data.frame(Group = paste0(rep(c("NC", "SZ", "BD"), each=10), sprintf("_%02d",seq(1:10))))
 data2
 
+# add an variable
+data2["RT"] <- c(21:50)
+str(data2)
 
 
 # reading text data
