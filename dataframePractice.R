@@ -30,7 +30,7 @@ mydata
 names(mydata)[names(mydata)=="year"] <- "Year"
 names(mydata)[names(mydata)=="sex"] <- "Sex"
 # add a new variable
-mydata$country <- c(rep(c("US", "KR"), times=3))
+mydata$country <- c(rep(c("US", "KR"), times=3, each=1))
 head(mydata)
 
 # creating variable names and assign to the dataframe
