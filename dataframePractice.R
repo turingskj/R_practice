@@ -30,7 +30,7 @@ mydata
 names(mydata)[names(mydata)=="year"] <- "Year"
 names(mydata)[names(mydata)=="sex"] <- "Sex"
 # add a new variable
-mydata$country <- c(rep(c("US", "KR"), times=3, each=1))
+mydata$country <- c(rep(c("US", "KR"), times=1, each=3))
 head(mydata)
 
 # creating variable names and assign to the dataframe
@@ -40,7 +40,7 @@ data2
 # add an variable
 data2["RT"] <- c(21:50)
 str(data2)
-
+data2
 
 # reading text data
 
@@ -49,12 +49,12 @@ str(data2)
 # read.csv() <-> write.csv()
 
 # readLines() # read lines of a text file  <-> writeLines()
-data1 <- readLines("Data/tDCS_exp1.csv", n=1, encoding = "UTF-8");
-
+data1 <- readLines("Data/tDCS_exp1.csv", n=2, encoding = "UTF-8");
+head(data1)
 
 # source() # reading r script file  <-> inverse of dump()
-# dget() # write R object (functions, data, etc) into a file
-# dput() # read R object file
+# dpu() # write R object (functions, data, etc) into a file
+# dget() # read R object file
 
 
 # unserialize()  # reading single R ojbect in binary form, not text file <-> serial
