@@ -253,14 +253,16 @@ y$bb <- factor(y$bb, levels = c(1,2), labels = c("one", "two"))
 print(y)
 
 y <- structure(list(a = c(1:3), b = structure(c(2, 3, 3), class ="factor", levels = c(1:3), 
-                                                     .Label = c("one", "two", "three")))
-              , row.names = c(NA, -3), class="data.frame")
+                                              .Label = c("one", "two", "three"))),
+               row.names = c(NA, -3), class="data.frame")
+
 str(y)
 
 
 y <- structure(list(a = c(1:10), b = LETTERS[1:10]), names = list("aa", "bb"), class="data.frame")
 y <- structure(data.frame(a = c(1:10), b = LETTERS[1:10]), names = list("aa", "bb"))
 str(y)
+
 
 print(y)
 
