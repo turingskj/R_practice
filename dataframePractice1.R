@@ -49,6 +49,8 @@ data2
 # read.csv() <-> write.csv()
 
 # readLines() # read lines of a text file  <-> writeLines()
+# note that readline() reads a line from the terminal
+#           readLines() reads lines from file...
 data1 <- readLines("Data/tDCS_exp1.csv", n=2, encoding = "UTF-8");
 head(data1)
 
@@ -282,6 +284,40 @@ dump(c("y", "dd"), "test.r")
 
 
 
+
+
+# Opening an file connection (URL, etc) 
+# file() and close() are paired functions
+
+confileLink <- gzfile("words.gz") # gzip file
+
+currentfolder <- getwd()
+tempdir() # returns a temp folder of the session
+tempfilename <- tempfile(pattern = "test", fileext=".txt", tmpdir=currentfolder)
+writeLines(c("test", "1211"), tempfilename)
+
+
+# if you open a connection using file(), you need to close it close() no matter what.
+filelink1 <- file(description= tempfilename, open ="rt") 
+
+mydata <-readLines(filelink1, 2)  # note readline() reads a line from console
+#mydata <-readLines(tempfilename, 2)  # note readline() reads a line from console
+mydata <- read.table(filelink1, col.names = c("varX"))
+#mydata <- read.table(tempfilename, col.names = c("varX"))
+
+close(filelink1) # not needed for read.csv, read.table etc.
+print(mydata)
+unlink(tempfilename)
+rm(list=ls())
+
+
+# using url()
+
+fileconnection1 = url("https://raw.githubusercontent.com/turingskj/R_practice/master/Data/tDCS_exp1.csv")
+data <- read.table(fileconnection1, sep =",", header = TRUE, encoding="UTF-8")
+head(data)
+colnames(data)[1]<-"OriginalID"
+names(data)[1]<-"OriginalID"
 
 
 # Subsetting

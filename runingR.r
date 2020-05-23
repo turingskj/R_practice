@@ -337,7 +337,7 @@ b<-a[rep(c(1,2,2,1), times=1)]
 
 # difference between c, cat, and paste
 a<-c(1, 2, 3)  # c function simply combines the arguments as an output (assinged to a variable)
-cat("1, 2, 3\n") # cat only prints or save to file. does not return as a variable. 
+cat("1, 2, 3\n", file="textcat.txt") # cat only prints on console or save to file. does not return as a variable. 
                # therefore, you cannot assign a variable to the output of cat
 b<-paste("simple", 2, "r", 323, sep="_") # paste combines all arguments as string. 
                              # its output can be assinged to a string variable. 
